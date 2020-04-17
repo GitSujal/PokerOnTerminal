@@ -1,6 +1,6 @@
 from collections import Counter
 import numpy as np
-
+from PrintCard import ascii_version_of_card
 class Card():
     '''
     Class definition for the Card
@@ -48,7 +48,7 @@ class Player():
             'ThreeKind':False,
             'Straight':False,
             'Flush':False,
-            'Fullhouse':False,
+            'FullHouse':False,
             'FourKind':False,
             'StraightFlush':False,
             'RoyalFlush':False,    
@@ -68,6 +68,8 @@ class Player():
         
         elif 3 in numdictcount.values():
             self.ResultDict['ThreeKind']=True
+            if 2 in numdictcount.values():
+                self.ResultDict['FullHouse']=True
       
         elif 2 in numdictcount.values():
             if len(numdictcount)>3:
@@ -76,8 +78,8 @@ class Player():
             else:
                 self.ResultDict['TwoPair']=True
 
-        if self.ResultDict['ThreeKind'] & self.ResultDict['OnePair']:
-            self.ResultDict['FullHouse']=True
+        # if self.ResultDict['ThreeKind'] & self.ResultDict['OnePair']:
+            
             
         issorted = True
         if self.HighestCard == 14:
@@ -104,7 +106,7 @@ class Player():
         if self.ResultDict['Straight'] and self.ResultDict['Flush']:
             self.ResultDict['StraightFlush'] = True
         
-        if self.ResultDict['Straight'] and self.LowestCard==10:
+        if self.ResultDict['Straight'] and self.ResultDict['Flush'] and self.LowestCard==10:
             self.ResultDict['RoyalFlush'] = True
             
         if self.ResultDict['RoyalFlush']:
@@ -113,7 +115,7 @@ class Player():
             self.CardScore = 800+self.SortedCards[-1]
         elif self.ResultDict['FourKind']:
             self.CardScore = 700+4*sum([key for key in numdictcount.keys() if numdictcount[key]==4])
-        elif self.ResultDict['Fullhouse']:
+        elif self.ResultDict['FullHouse']:
             self.CardScore = 600+3*sum([key for key in numdictcount.keys() if numdictcount[key]==3]) 
         elif self.ResultDict['Flush']:
             self.CardScore = 500+ self.HighestCard
@@ -131,8 +133,7 @@ class Player():
     def __str__(self):
         # self.evaluateCards()
         retstr = "Player {} has following cards\n".format(self.PlayerNum)
-        for card in self.Cards:
-            retstr += "{}\t".format(card)
+        retstr += ascii_version_of_card(self.Cards[0],self.Cards[1],self.Cards[2],self.Cards[3],self.Cards[4])
         retstr += "\n"
         cardstats = [key for key in self.ResultDict.keys() if self.ResultDict[key]==True]
         for stats in cardstats:
