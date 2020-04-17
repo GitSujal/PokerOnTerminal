@@ -7,13 +7,6 @@ import numpy as np
 from Card import Card
 from Card import Player
 from PrintCard import ascii_version_of_card
-#
-# @param {string[]} player1
-# @param {string[]} player2
-# @return {int = winner}
-#
-
-
 import argparse
 
 
