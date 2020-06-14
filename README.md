@@ -15,3 +15,8 @@ pip install -r Requirements.txt
 python3 poker.py -n <NUMBEROFPLAYERS>
 
 ```
+
+### Sample Run
+
+![Sample Run of the Program](sampleRun.png?raw=true "Title")
+
