@@ -23,6 +23,8 @@ def distributeCards(deckofCards,nplayers,ncards=5):
     return hands
 
 
+
+
 def tieBreaker(player1,player2):
     '''
     Breaking the tie using high card rule
@@ -110,6 +112,7 @@ def main():
     if args.simulation:
         resultdict = runSimulation(deckofCards,args.simulation)     
         print(resultdict)
+    
     
     else:
         numplayers = 5
