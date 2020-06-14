@@ -18,7 +18,7 @@ python3 poker.py -n <NUMBEROFPLAYERS>
 
 ### Sample Run
 
-![Sample Run of the Program](SampleRun.png?raw=true "Sample Run")
+![Sample Run of the Program](https://github.com/GitSujal/PokerOnTerminal/blob/master/sampleRun.png?raw=true "Sample Run")
 
 
 ### Sample Simulation
