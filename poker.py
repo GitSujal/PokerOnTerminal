@@ -16,8 +16,9 @@ def distributeCards(deckofCards,nplayers,ncards=5):
     '''
     hands = []
     if nplayers*ncards<=52:
-        for i in range(nplayers):
-            hands.append(np.random.choice(deckofCards,replace=False,size=ncards))
+        hands = np.random.choice(deckofCards,size=(nplayers,ncards),replace=False)
+        # for i in range(nplayers):
+        #     hands.append(np.random.choice(deckofCards,replace=False,size=ncards))
     else:
         raise ValueError("Number of Player Can't be greater than 10")
     return hands

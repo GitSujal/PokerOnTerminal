@@ -18,5 +18,15 @@ python3 poker.py -n <NUMBEROFPLAYERS>
 
 ### Sample Run
 
-![Sample Run of the Program](sampleRun.png?raw=true "Title")
+![Sample Run of the Program](SampleRun.png?raw=true "Title")
 
+
+### Sample Simulation
+
+```
+
+To run the simulation open the jupyter notebook file
+
+```
+
+![Sample Run of the Program](SampleSimulation.png?raw=true "Title")
